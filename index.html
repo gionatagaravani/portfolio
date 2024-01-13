@@ -23,6 +23,7 @@
 	
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	
@@ -514,26 +515,26 @@
 
 			<div class="row block-9">
 				<div class="col-md-8">
-					<form action="#" class="bg-light p-4 p-md-5 contact-form">
+					<form id="contact-form" class="bg-light p-4 p-md-5 contact-form">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Your Name">
+									<input type="text" class="form-control" placeholder="Your Name" name="user_name">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Your Email">
+									<input type="text" class="form-control" placeholder="Your Email" name="user_email">
 								</div>
 							</div>
-							<div class="col-md-12">
+							<!-- <div class="col-md-12">
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Subject">
 								</div>
-							</div>
+							</div> -->
 							<div class="col-md-12">
 								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+									<textarea  name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -669,8 +670,8 @@
 		<script src="js/scrollax.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 		<script src="js/google-map.js"></script>
-		
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<script src="js/main.js"></script>
-		
 	</body>
 	</html>

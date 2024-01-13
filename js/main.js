@@ -1,6 +1,34 @@
- (function($) {
+(function($) {
 
 	"use strict";
+	
+	emailjs.init('tGVy7rGkpJC6RRkCJ');
+
+	document.getElementById('contact-form').addEventListener('submit', function(event) {
+		event.preventDefault();
+		console.log(event)
+		// generate a five digit number for the contact_number variable
+		// this.contact_number.value = Math.random() * 100000 | 0;
+		// these IDs from the previous steps
+		emailjs.sendForm('service_wtjop2j', 'template_e3nid6s', this)
+			.then(function() {
+				console.log('SUCCESS!');
+				Swal.fire({
+					title: "Message sent!",
+					icon: "success",
+					showConfirmButton: false,
+  					timer: 1500
+				  });
+			}, function(error) {
+				Swal.fire({
+					title: "Ops! Something went wrong!",
+					icon: "error",
+					showConfirmButton: false,
+  					timer: 1500
+				  });
+				console.log('FAILED...', error);
+			});
+	});
 
 	$(window).stellar({
     responsive: true,
