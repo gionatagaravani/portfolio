@@ -362,6 +362,21 @@ section { padding: 7rem 2.5rem; }
 /* ── About ───────────────────────────────────────── */
 .about { background: var(--bg-elevated); }
 
+.about__photo-wrap {
+  margin-top: 2rem;
+}
+
+.about__photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 65%;
+  border: 3px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: block;
+}
+
 .about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1076,6 +1091,9 @@ section { padding: 7rem 2.5rem; }
     <div class="reveal">
       <span class="section-label">Introduction</span>
       <h2 class="section-title">About Me</h2>
+      <div class="about__photo-wrap">
+        <img src="images/balo.png" alt="Gionata Garavani" class="about__photo">
+      </div>
     </div>
 
     <div class="about__grid">
