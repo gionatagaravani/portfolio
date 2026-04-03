@@ -745,31 +745,62 @@ section { padding: 7rem 2.5rem; }
 /* ── Marquee ─────────────────────────────────────── */
 .marquee {
   overflow: hidden;
-  padding: 2.5rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 .marquee__inner {
   display: flex;
-  gap: 3rem;
-  animation: marquee 25s linear infinite;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0.5rem;
+  animation: marquee 45s linear infinite;
   width: max-content;
 }
-.marquee__item {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  font-weight: 800;
-  white-space: nowrap;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
-  letter-spacing: -0.02em;
+.marquee:hover .marquee__inner {
+  animation-play-state: paused;
 }
-.marquee__item .filled {
-  -webkit-text-stroke: 0;
-  color: rgba(255,255,255,0.06);
+.marquee__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1rem 1.25rem;
+  min-width: 80px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+  cursor: default;
+}
+.marquee__item:hover {
+  border-color: rgba(200, 255, 50, 0.35);
+  background: rgba(200, 255, 50, 0.04);
+  transform: translateY(-4px);
+}
+.marquee__item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.marquee__item svg.tech-icon {
+  width: 40px;
+  height: 40px;
+}
+.tech-name {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
@@ -828,7 +859,9 @@ section { padding: 7rem 2.5rem; }
   .skills__grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr; }
   .projects__grid { grid-template-columns: 1fr; }
-  .marquee__item { font-size: 2rem; }
+  .marquee__item { padding: 0.75rem 1rem; min-width: 68px; }
+  .marquee__item img, .marquee__item svg.tech-icon { width: 32px; height: 32px; }
+  .tech-name { font-size: 0.6rem; }
 }
   </style>
 </head>
@@ -886,39 +919,121 @@ section { padding: 7rem 2.5rem; }
 <!-- ─── Marquee ─── -->
 <div class="marquee">
   <div class="marquee__inner">
-    <span class="marquee__item"><span class="filled">Angular</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">.NET Core</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">C#</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">TypeScript</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">SQL Server</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">Python</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">Golang</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">HTML &amp; CSS</span>
-    <span class="marquee__item">•</span>
-    <!-- Duplicate for seamless loop -->
-    <span class="marquee__item"><span class="filled">Angular</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">.NET Core</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">C#</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">TypeScript</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">SQL Server</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">Python</span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item"><span class="filled">Golang</span></span>
-    <span class="marquee__item">•</span>
-    <span class="marquee__item">HTML &amp; CSS</span>
-    <span class="marquee__item">•</span>
+    <!-- Set 1 -->
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" loading="lazy">
+      <span class="tech-name">Angular</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy">
+      <span class="tech-name">Python</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS" loading="lazy">
+      <span class="tech-name">Tailwind</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" loading="lazy">
+      <span class="tech-name">HTML</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" loading="lazy">
+      <span class="tech-name">CSS</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="Firebase" loading="lazy">
+      <span class="tech-name">Firebase</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" loading="lazy">
+      <span class="tech-name">Supabase</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" loading="lazy">
+      <span class="tech-name">C#</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go" loading="lazy">
+      <span class="tech-name">Go</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" loading="lazy">
+      <span class="tech-name">Git</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy">
+      <span class="tech-name">MongoDB</span>
+    </div>
+    <div class="marquee__item">
+      <!-- AI sparkle icon -->
+      <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4L22.8 15.2L34 18L22.8 20.8L20 32L17.2 20.8L6 18L17.2 15.2L20 4Z" fill="#c8ff32"/>
+        <path d="M32 6L33 9.5L36.5 10.5L33 11.5L32 15L31 11.5L27.5 10.5L31 9.5L32 6Z" fill="#c8ff32" opacity="0.6"/>
+        <path d="M8 26L8.8 28.6L11.4 29.4L8.8 30.2L8 32.8L7.2 30.2L4.6 29.4L7.2 28.6L8 26Z" fill="#c8ff32" opacity="0.5"/>
+      </svg>
+      <span class="tech-name">AI</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.simpleicons.org/anthropic/c8ff32" alt="Claude Code" loading="lazy">
+      <span class="tech-name">Claude Code</span>
+    </div>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" loading="lazy">
+      <span class="tech-name">Angular</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy">
+      <span class="tech-name">Python</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="TailwindCSS" loading="lazy">
+      <span class="tech-name">Tailwind</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" loading="lazy">
+      <span class="tech-name">HTML</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" loading="lazy">
+      <span class="tech-name">CSS</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="Firebase" loading="lazy">
+      <span class="tech-name">Firebase</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase" loading="lazy">
+      <span class="tech-name">Supabase</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" loading="lazy">
+      <span class="tech-name">C#</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go" loading="lazy">
+      <span class="tech-name">Go</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" loading="lazy">
+      <span class="tech-name">Git</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy">
+      <span class="tech-name">MongoDB</span>
+    </div>
+    <div class="marquee__item">
+      <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4L22.8 15.2L34 18L22.8 20.8L20 32L17.2 20.8L6 18L17.2 15.2L20 4Z" fill="#c8ff32"/>
+        <path d="M32 6L33 9.5L36.5 10.5L33 11.5L32 15L31 11.5L27.5 10.5L31 9.5L32 6Z" fill="#c8ff32" opacity="0.6"/>
+        <path d="M8 26L8.8 28.6L11.4 29.4L8.8 30.2L8 32.8L7.2 30.2L4.6 29.4L7.2 28.6L8 26Z" fill="#c8ff32" opacity="0.5"/>
+      </svg>
+      <span class="tech-name">AI</span>
+    </div>
+    <div class="marquee__item">
+      <img src="https://cdn.simpleicons.org/anthropic/c8ff32" alt="Claude Code" loading="lazy">
+      <span class="tech-name">Claude Code</span>
+    </div>
   </div>
 </div>
 
