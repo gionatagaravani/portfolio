@@ -1,7 +1,13 @@
 (function($) {
 
 	"use strict";
-	
+
+	// Clear any hash from the URL on load and scroll to top to prevent the browser from auto-scrolling to an anchor
+	if (window.location.hash) {
+		history.replaceState(null, null, window.location.pathname);
+		window.scrollTo(0, 0);
+	}
+
 	emailjs.init('tGVy7rGkpJC6RRkCJ');
 
 	document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -85,16 +91,16 @@
 	var onePageClick = function() {
 
 
-		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
+		$(document).on('click', '#ftco-nav a[href^="#"], #navLinks a[href^="#"]', function (event) {
 	    event.preventDefault();
 
 	    var href = $.attr(this, 'href');
-
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
-	    }, 500, function() {
-	    	// window.location.hash = href;
-	    });
+	    var target = $(href);
+	    if (target.length) {
+		    $('html, body').animate({
+		        scrollTop: target.offset().top - 70
+		    }, 500);
+	    }
 		});
 
 	};
