@@ -650,6 +650,14 @@ section { padding: 7rem 2.5rem; }
   position: relative;
   overflow: hidden;
 }
+.project-card__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 .project-card__image::after {
   content: '';
   position: absolute; inset: 0;
@@ -1329,7 +1337,9 @@ section { padding: 7rem 2.5rem; }
 
     <div class="projects__grid stagger">
       <div class="project-card reveal-scale" style="--i:0">
-        <div class="project-card__image">LA SUITE</div>
+        <div class="project-card__image">
+          <img src="https://image.thum.io/get/width/640/crop/400/https://lasuite72.it" alt="La Suite 72 preview" loading="lazy">
+        </div>
         <div class="project-card__body">
           <span class="project-card__tag">Web Design</span>
           <h3 class="project-card__title">La Suite 72 – Barber Shop</h3>
@@ -1339,6 +1349,18 @@ section { padding: 7rem 2.5rem; }
       </div>
 
       <div class="project-card reveal-scale" style="--i:1">
+        <div class="project-card__image">
+          <img src="https://image.thum.io/get/width/640/crop/400/https://netflix-angular-clone.vercel.app" alt="Netflix Angular Clone preview" loading="lazy">
+        </div>
+        <div class="project-card__body">
+          <span class="project-card__tag">Learning Project</span>
+          <h3 class="project-card__title">Netflix Angular Clone</h3>
+          <p class="project-card__desc">A Netflix UI clone built with Angular to practice and learn Tailwind CSS — replicating the layout, cards, and responsive design of the streaming platform.</p>
+          <a href="https://github.com/gionatagaravani/Netflix-Anglar-Clone" target="_blank" rel="noopener" class="project-card__link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal-scale" style="--i:2">
         <div class="project-card__image">MORE SOON</div>
         <div class="project-card__body">
           <span class="project-card__tag">Coming Soon</span>
