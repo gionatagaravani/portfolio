@@ -1,0 +1,31 @@
+name: Deploy to Aruba Windows Hosting
+
+on:
+  push:
+    branches:
+      - main # Assicurati che il branch si chiami 'main' e non 'master'
+
+jobs:
+  deploy:
+    name: Deploy Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: 🚀 Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # MODIFICA CHIAVE: Punta direttamente alla cartella del tuo dominio
+          server-dir: /gionatagaravani.it/
+
+          # OPZIONALE: Se vuoi escludere alcuni file dal caricamento online (es. file di config locali)
+          # exclude: |
+          #   **/.git*
+          #   **/.git*/**
+          #   prepros-6.config
+          #   README.md
