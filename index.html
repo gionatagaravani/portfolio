@@ -796,6 +796,22 @@ section { padding: 7rem 2.5rem; }
 }
 .footer__text { font-size: 0.85rem; color: var(--text-muted); }
 .footer__text span { color: var(--accent); }
+.footer__links {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer__link {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.footer__link:hover {
+  color: var(--accent);
+}
 
 /* ── Marquee ─────────────────────────────────────── */
 .marquee {
@@ -1481,6 +1497,9 @@ section { padding: 7rem 2.5rem; }
 <!-- ─── Footer ─── -->
 <footer class="footer">
   <p class="footer__text">© 2026 Gionata Garavani. Built with <span>♥</span> and clean code.</p>
+  <div class="footer__links">
+    <a href="squarely-privacy.html" class="footer__link">Squarely Privacy Policy</a>
+  </div>
 </footer>
 
 <!-- ─── Toast ─── -->
